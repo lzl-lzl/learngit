@@ -1,0 +1,18 @@
+{
+  "name": "lzl_bst_ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "scripts":{
+      "wocao":"webpack-dev-server --devtool eval-source-map --hot --inline --content-base"
+  },
+  "devDependencies": {
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
