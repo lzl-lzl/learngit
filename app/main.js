@@ -1,0 +1,34 @@
+
+// import accordion from '../src/accordion';
+require('../src/accordion');
+// angular.module('myModule', [accordion]);
+
+angular.module('myModule',['ui.bootstrap_accordion', 'accordion_html', 'uib/template/accordion/accordion-group.html']).controller('AccordionDemoCtrl', function ($scope) {
+  $scope.oneAtATime = true;
+
+  $scope.groups = [
+    {
+      title: 'Dynamic Group Header - 1',
+      content: 'Dynamic Group Body - 1'
+    },
+    {
+      title: 'Dynamic Group Header - 2',
+      content: 'Dynamic Group Body - 2'
+    }
+  ];
+
+  $scope.items = ['Item 1', 'Item 2', 'Item 3'];
+
+  $scope.addItem = function() {
+    var newItemNo = $scope.items.length + 1;
+    $scope.items.push('Item ' + newItemNo);
+  };
+
+  $scope.status = {
+    isCustomHeaderOpen: false,
+    isFirstOpen: true,
+    isFirstDisabled: false
+  };
+});
+// document.write('<h1>Hsaello Worssasdasdsassld!!!</h1>');
+
