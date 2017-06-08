@@ -146,12 +146,12 @@ window.onload = function() {
       searchQuery: '',
       gridColumns: ['name', 'power', 'time', 'sex', 'total'],
       gridData: [{
-        name: 'Chuck Norris',
+        name: '李兆隆',
         power: 5000,
         time: 500,
         sex: 'female'
       }, {
-        name: 'Bruce Lee',
+        name: 'zhaolong Lee',
         power: 9000,
         time: 1230,
         sex: 'male'
