@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+   <script src='./vue2.js'></script>
+   <script src='./index.js'></script>
+   <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+  
+  <script type="text/x-template" id="grid-template">
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th v-for="key in columns"
+          @click="sortBy(key)"
+          :class="{ active: sortKey == key }">
+          {{ key | ToChinese }}
+          <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="entry in filteredData">
+        <td v-for="key in columns">
+          {{entry[key]}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div @click="addition" @on-result-change="onResultChange">
+  增加
+  </div>
+</div>
+</script>
+
+<!-- demo root element -->
+<div id="demo">
+  <form id="search" >
+    Search 
+    <input name="query" v-model="searchQuery"/>
+    <input class="adition" v-model="newPerson.name"/>
+    <input class="adition" v-model="newPerson.power"/>
+    <input class="adition" v-model="newPerson.time"/>
+  </form>
+ 
+  
+   
+  <demo-grid
+    :data="gridData"
+    :columns="gridColumns"
+    :filter-key="searchQuery"
+    :newperson="newPerson">
+  </demo-grid>
+</div>
+
+
+</body>
+</html>
+<!-- component template -->

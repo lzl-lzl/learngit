@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style type="text/css">
+    .del-span{
+      transform-origin: 56% 58%;
+      display: inline-block;
+      transition: .6s;
+      
+    }
+    .folderlzl{
+      list-style-type: square;
+    }
+    .del-span:hover{
+      transform: rotate(90deg);
+    }
+    b {display:inline-block; width:12px; height:2px; background:#f00; 
+      font-size:0; line-height:0;vertical-align:super;-webkit-transform: rotate(45deg);}
+    b:after { content:'.'; display:block; width:12px; height:2px; 
+      background:#f00;-webkit-transform: rotate(-90deg);}
+</style>
+
+</head>
+<body>
+  
+    <script type="text/javascript" src='./vue2.js'></script>
+    <script src='./index.js'></script>
+    <script type="text/x-template" id="item-template">
+      <li>
+        <div :class="{bold: isFolder}" @click="toggle" @dblclick="changeType">
+          {{model.name}}
+          <span v-if="isFolder">[{{open ? '-' : '+'}}]</span> 
+          <span v-if="!isFolder" class='del-span' @click="delItem()"><b></b></span>
+        </div>
+        <ul v-show="open" v-if="isFolder">
+          <item class="item" v-for="(x,index) in model.children" :model="x">
+          </item>
+          <li class="add" @click="addChild">+</li>
+          <span>共{{isFolder}}层</span>
+        </ul>
+      </li>
+    </script>
+
+
+
+<div style='overflow: hidden;'>
+    <p style="float: left;">双击即可编程文件夹 </p><p style="float: right">改自Vuejs 2.0  tree-view</p>
+</div>
+    <!-- the demo root element -->
+    <ul id="demo">
+      <item class="item" :model="treeData">
+      </item>
+    </ul>
+
+
+</body>
+</html>
+<!-- item template -->
