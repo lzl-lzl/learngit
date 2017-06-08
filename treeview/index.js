@@ -5,7 +5,7 @@ window.onload = function() {
     children: [{
       name: 'hello'
     }, {
-      name: 'wat'
+      name: '李兆隆'
     }, {
       name: 'child folder',
       children: [{
@@ -87,7 +87,7 @@ window.onload = function() {
       },
       addChild: function() {
         this.model.children.push({
-          name: 'new stuff  ' + (this.model.children.length + 1)
+          name: '新用户  ' + (this.model.children.length + 1)
         })
       }
     }
